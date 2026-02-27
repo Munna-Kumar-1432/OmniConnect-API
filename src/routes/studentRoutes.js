@@ -8,6 +8,21 @@ const studentController = require('../controllers/studentController');
  *   post:
  *     summary: Enroll a student
  *     tags: [Students]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               course:
+ *                 type: string
+ *               studentId:
+ *                 type: string
  */
 router.post('/', studentController.createStudent);
 
@@ -47,6 +62,20 @@ router.get('/:id', studentController.getStudentById);
  *         required: true
  *         schema:
  *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullName:
+ *                 type: string
+ *               course:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *                 enum: [enrolled, graduated, dropped]
  */
 router.put('/:id', studentController.updateStudent);
 

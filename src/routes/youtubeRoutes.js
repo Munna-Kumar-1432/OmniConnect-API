@@ -12,6 +12,24 @@ const upload = multer({ storage });
  *   post:
  *     summary: Upload video or image to Cloudinary
  *     tags: [YouTube]
+ *     requestBody:
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               category:
+ *                 type: string
+ *               tags:
+ *                 type: string
+ *                 description: Comma separated tags
  */
 router.post('/upload', upload.single('file'), youtubeController.uploadContent);
 

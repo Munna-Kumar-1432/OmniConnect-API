@@ -8,6 +8,25 @@ const employeeController = require('../controllers/employeeController');
  *   post:
  *     summary: Create a new employee
  *     tags: [Employees]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               position:
+ *                 type: string
+ *               salary:
+ *                 type: number
+ *               profileImage:
+ *                 type: string
  */
 router.post('/', employeeController.createEmployee);
 
@@ -47,6 +66,24 @@ router.get('/:id', employeeController.getEmployeeById);
  *         required: true
  *         schema:
  *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               position:
+ *                 type: string
+ *               salary:
+ *                 type: number
+ *               status:
+ *                 type: string
+ *                 enum: [active, inactive]
  */
 router.put('/:id', employeeController.updateEmployee);
 
