@@ -10,7 +10,12 @@ const options = {
         },
         servers: [
             {
+                url: 'http://3.27.148.62:5000',
+                description: 'Live Server'
+            },
+            {
                 url: 'http://localhost:5000',
+                description: 'Local Server'
             },
         ],
     },
